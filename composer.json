@@ -1,0 +1,23 @@
+{
+  "name": "tjg/gangoy-core",
+  "description": "The gangoy framework core package",
+  "keywords": ["gangoy","tjg web","framework","gangoy-core","php"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Talles Gazel",
+      "email": "tjgazel@gmail.com",
+      "homepage": "http://tjgweb.com.br"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "TJG\\Gangoy\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=5.6.9",
+    "ext-bcmath": "*"
+  }
+}
