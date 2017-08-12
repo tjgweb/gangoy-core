@@ -1,6 +1,6 @@
 {
   "name": "tjg/gangoy-core",
-  "description": "The gangoy framework core package",
+  "description": "The core library for Gangoy Framework",
   "keywords": ["gangoy","tjg web","framework","gangoy-core","php"],
   "type": "library",
   "license": "MIT",

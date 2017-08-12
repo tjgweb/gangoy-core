@@ -1,6 +1,6 @@
 <?php
 
-namespace TJG\Gangoy\Helpers\Views;
+namespace TJG\Gangoy\TwigExtension;
 
 use Slim\Csrf\Guard;
 

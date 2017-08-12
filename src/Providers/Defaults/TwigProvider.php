@@ -2,14 +2,14 @@
 
 namespace TJG\Gangoy\Providers\Defaults;
 
-use Awurth\SlimValidation\ValidatorExtension;
-use TJG\Gangoy\Helpers\Views\AuthTwigExtension;
-use TJG\Gangoy\Helpers\Views\SlimCsrfTwigExtension;
 use TJG\Gangoy\Providers\ProviderInterface;
 use Interop\Container\ContainerInterface;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
-use TJG\Gangoy\Helpers\Views\SlimFlashTwigExtension;
+use TJG\Gangoy\TwigExtension\SlimFlashTwigExtension;
+use TJG\Gangoy\TwigExtension\SlimCsrfTwigExtension;
+use Awurth\SlimValidation\ValidatorExtension;
+use TJG\Gangoy\TwigExtension\AuthTwigExtension;
 
 class TwigProvider implements ProviderInterface
 {
@@ -28,8 +28,8 @@ class TwigProvider implements ProviderInterface
             $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
             $view->addExtension(new TwigExtension($container['router'], $basePath));
             $view->addExtension(new SlimFlashTwigExtension($container['flash']));
-			$view->addExtension(new ValidatorExtension($container['validator']));
-			$view->addExtension(new SlimCsrfTwigExtension($container['csrf']));
+            $view->addExtension(new SlimCsrfTwigExtension($container['csrf']));
+            $view->addExtension(new ValidatorExtension($container['validator']));
 			$view->addExtension(new AuthTwigExtension($container['auth']));
 
             return $view;

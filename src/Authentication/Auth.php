@@ -14,12 +14,12 @@ class Auth extends JasnyAuth
 	public function fetchUserById($id)
 	{
 		$user = User::find($id);
-		return new \TJG\Authentication\User($user);
+		return new \TJG\Gangoy\Authentication\User($user);
 	}
 
 	public function fetchUserByUsername($username)
 	{
 		$user = User::where('email', $username)->first();
-		return new \TJG\Authentication\User($user);
+		return new \TJG\Gangoy\Authentication\User($user);
 	}
 }
