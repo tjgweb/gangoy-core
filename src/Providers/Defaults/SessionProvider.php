@@ -3,11 +3,11 @@
 namespace TJG\Gangoy\Providers\Defaults;
 
 
-use Awurth\SlimValidation\Validator;
 use Interop\Container\ContainerInterface;
+use TJG\Gangoy\Http\Session\Session;
 use TJG\Gangoy\Providers\ProviderInterface;
 
-class SlimValidationProvider implements ProviderInterface
+class SessionProvider implements ProviderInterface
 {
 
 	/**
@@ -16,8 +16,8 @@ class SlimValidationProvider implements ProviderInterface
 	 */
 	public function boot(ContainerInterface $container)
 	{
-		$container['validator'] = function () {
-			return new Validator;
+		$container['session'] = function ($c){
+			return new Session($c['hashIds']);
 		};
 	}
 }

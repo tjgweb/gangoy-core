@@ -2,12 +2,11 @@
 
 namespace TJG\Gangoy\Providers\Defaults;
 
-
+use Hashids\Hashids;
 use TJG\Gangoy\Providers\ProviderInterface;
 use Interop\Container\ContainerInterface;
-use Slim\Flash\Messages;
 
-class FlashProvider implements ProviderInterface
+class HashIdsProvider implements ProviderInterface
 {
 
     /**
@@ -16,8 +15,9 @@ class FlashProvider implements ProviderInterface
      */
     public function boot(ContainerInterface $container)
     {
-        $container['flash'] = function () {
-            return new Messages;
+        $container['hashIds'] = function () {
+        	$time = time();
+            return new Hashids('Gangoy');
         };
     }
 }

@@ -16,10 +16,10 @@ class NotFoundHandlerProvider implements ProviderInterface
 	{
 		$path_view = __DIR__ . '/../../../resources/views/errors/404.twig';
 		if(file_exists($path_view)){
-			$container['notFoundHandler'] = function ($container) {
-				return function () use ($container) {
-					$res = $container['response']->withStatus(404);
-					return $container['view']->render($res, 'errors/404.twig');
+			$container['notFoundHandler'] = function ($c) {
+				return function () use ($c) {
+					$res = $c['response']->withStatus(404);
+					return $c['view']->render($res, 'errors/404.twig');
 				};
 			};
 		}

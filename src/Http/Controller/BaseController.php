@@ -71,7 +71,7 @@ abstract class BaseController
 	 */
 	protected function moveUpLoadedFile(UploadedFile $uploadedFile, $subDirectory = null)
 	{
-		$uploadDirectory = $this->container->get('upload_directory');
+		$uploadDirectory = $this->container['settings']['uploadDirectory'];
 		if ($subDirectory) {
 			$uploadDirectory = $uploadDirectory . DIRECTORY_SEPARATOR . $subDirectory;
 			if(!file_exists($uploadDirectory)){

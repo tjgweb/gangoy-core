@@ -2,7 +2,6 @@
 
 namespace TJG\Gangoy\Providers\Defaults;
 
-
 use TJG\Gangoy\Authentication\Auth;
 use TJG\Gangoy\Providers\ProviderInterface;
 use Interop\Container\ContainerInterface;
@@ -16,8 +15,8 @@ class AuthProvider implements ProviderInterface
      */
     public function boot(ContainerInterface $container)
     {
-        $container['auth'] = function () {
-            return new Auth;
+        $container['auth'] = function ($c) {
+            return new Auth($c);
         };
     }
 }

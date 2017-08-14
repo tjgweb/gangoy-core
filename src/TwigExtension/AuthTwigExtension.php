@@ -2,7 +2,6 @@
 
 namespace TJG\Gangoy\TwigExtension;
 
-
 use TJG\Gangoy\Authentication\Auth;
 
 /**
@@ -46,14 +45,17 @@ class AuthTwigExtension extends \Twig_Extension
     }
 
 	/**
-	 * @return Auth
+	 * @return bool
 	 */
 	public function auth()
     {
-		return $this->auth;
+		return $this->auth->check();
     }
 
-    public function user()
+	/**
+	 * @return mixed
+	 */
+	public function user()
 	{
 		return $this->auth->user();
 	}

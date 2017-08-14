@@ -16,10 +16,10 @@ class PhpErrorHandlerProvider implements ProviderInterface
 	{
 		$path_view = __DIR__ . '/../../../resources/views/errors/500.twig';
 		if(file_exists($path_view) && getenv('DISPLAY_ERRORS') == 'false'){
-			$container['phpErrorHandler'] = function ($container) {
-				return function () use ($container) {
-					$res = $container['response']->withStatus(500);
-					return $container['view']->render($res, 'errors/500.twig');
+			$container['phpErrorHandler'] = function ($c) {
+				return function () use ($c) {
+					$res = $c['response']->withStatus(500);
+					return $c['view']->render($res, 'errors/500.twig');
 				};
 			};
 		}

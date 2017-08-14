@@ -20,17 +20,17 @@ class TwigProvider implements ProviderInterface
      */
     public function boot(ContainerInterface $container)
     {
-        $container['view'] = function ($container) {
-            $viewSettings = $container['settings']['views'];
-            $view = new Twig($viewSettings['template_path'], [
+        $container['view'] = function ($c) {
+            $viewSettings = $c['settings']['views'];
+            $view = new Twig($viewSettings['templatePath'], [
                 'cache' => $viewSettings['cache']
             ]);
-            $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
-            $view->addExtension(new TwigExtension($container['router'], $basePath));
-            $view->addExtension(new SlimFlashTwigExtension($container['flash']));
-            $view->addExtension(new SlimCsrfTwigExtension($container['csrf']));
-            $view->addExtension(new ValidatorExtension($container['validator']));
-			$view->addExtension(new AuthTwigExtension($container['auth']));
+            $basePath = rtrim(str_ireplace('index.php', '', $c['request']->getUri()->getBasePath()), '/');
+            $view->addExtension(new TwigExtension($c['router'], $basePath));
+            $view->addExtension(new SlimFlashTwigExtension($c['flash']));
+            $view->addExtension(new SlimCsrfTwigExtension($c['csrf']));
+            $view->addExtension(new ValidatorExtension($c['validator']));
+			$view->addExtension(new AuthTwigExtension($c['auth']));
 
             return $view;
         };
