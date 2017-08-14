@@ -16,8 +16,8 @@ class SessionProvider implements ProviderInterface
 	 */
 	public function boot(ContainerInterface $container)
 	{
-		$container['session'] = function ($c){
-			return new Session($c['hashIds']);
+		$container['session'] = function (){
+			return new Session;
 		};
 	}
 }

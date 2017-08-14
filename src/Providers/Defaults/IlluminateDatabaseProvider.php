@@ -17,7 +17,7 @@ class IlluminateDatabaseProvider implements ProviderInterface
     public function boot(ContainerInterface $container)
     {
         $container['db'] = function ($c) {
-            $dbSettings = $c['settings']['db'];
+            $dbSettings = $c->get('settings')['db'];
             $capsule = new Manager;
             $capsule->addConnection($dbSettings);
 //            $capsule->setEventDispatcher(new \Illuminate\Events\Dispatcher(new \Illuminate\Container\Container));

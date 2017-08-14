@@ -2,23 +2,12 @@
 
 namespace TJG\Gangoy\Http\Session;
 
-use Hashids\Hashids;
-
 /**
  * Class Session
  * @package TJG\Gangoy\Http\Session
  */
 class Session
 {
-	/**
-	 * @var Hashids
-	 */
-	private $hashids;
-
-	public function __construct(Hashids $hashids)
-	{
-		$this->hashids = $hashids;
-	}
 
 	/**
 	 * @param string $key
@@ -26,11 +15,9 @@ class Session
 	 */
 	public function set($key, $value)
 	{
-//		$key = $this->hashids->encodeHex($key);
 		if (is_null($value)) {
 			unset($_SESSION[$key]);
 		} else {
-//			$value = $this->hashids->encodeHex($value);
 			$_SESSION[$key] = $value;
 		}
 	}
@@ -41,7 +28,6 @@ class Session
 	 */
 	public function get($key)
 	{
-
 		return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
 	}
 
@@ -55,7 +41,6 @@ class Session
 				unset($_SESSION[$k]);
 			}
 		}
-
 		unset($_SESSION[$key]);
 	}
 }

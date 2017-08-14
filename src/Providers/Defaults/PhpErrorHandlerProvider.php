@@ -14,7 +14,7 @@ class PhpErrorHandlerProvider implements ProviderInterface
 	 */
 	public function boot(ContainerInterface $container)
 	{
-		$path_view = __DIR__ . '/../../../resources/views/errors/500.twig';
+		$path_view = APP_DIR . '/resources/views/errors/500.twig';
 		if(file_exists($path_view) && getenv('DISPLAY_ERRORS') == 'false'){
 			$container['phpErrorHandler'] = function ($c) {
 				return function () use ($c) {

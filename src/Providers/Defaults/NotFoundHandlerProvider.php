@@ -14,7 +14,7 @@ class NotFoundHandlerProvider implements ProviderInterface
 	 */
 	public function boot(ContainerInterface $container)
 	{
-		$path_view = __DIR__ . '/../../../resources/views/errors/404.twig';
+		$path_view = APP_DIR . '/resources/views/errors/404.twig';
 		if(file_exists($path_view)){
 			$container['notFoundHandler'] = function ($c) {
 				return function () use ($c) {

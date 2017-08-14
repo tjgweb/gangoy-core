@@ -21,7 +21,7 @@ class TwigProvider implements ProviderInterface
     public function boot(ContainerInterface $container)
     {
         $container['view'] = function ($c) {
-            $viewSettings = $c['settings']['views'];
+            $viewSettings = $c->get('settings')['views'];
             $view = new Twig($viewSettings['templatePath'], [
                 'cache' => $viewSettings['cache']
             ]);

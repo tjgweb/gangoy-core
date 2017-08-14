@@ -12,16 +12,25 @@ class Auth
 	 */
 	private $session;
 
-	private $model;
+	/**
+	 * @var string
+	 */
 	private $sessionName;
 
+	/**
+	 * @var
+	 */
+	private $model;
+
+	/**
+	 * Auth constructor.
+	 * @param ContainerInterface $container
+	 */
 	public function __construct(ContainerInterface $container)
 	{
 		$this->session = $container->get('session');
-		$authSettings = $container['settings']['auth'];
-		$this->sessionName = $authSettings['sessionName'];
-		$model = $authSettings['model'];
-		$this->model = new $authSettings['model'];
+		$this->sessionName = $container->get('settings')['auth']['sessionName'];
+		$this->model = new $container['settings']['auth']['model'];
 	}
 
 	/**
