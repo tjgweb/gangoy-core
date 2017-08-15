@@ -18,6 +18,15 @@
   },
   "require": {
     "php": ">=5.6.9",
-    "ext-bcmath": "*"
+    "slim/slim": "3.8.1",
+    "slim/flash": "0.2.0",
+    "slim/csrf": "0.8.1",
+    "slim/twig-view": "2.2.0",
+    "twig/twig": "1.34.4",
+    "illuminate/database": "5.4.27",
+    "robmorgan/phinx": "0.8.1",
+    "symfony/console": "3.3.6",
+    "vlucas/phpdotenv": "2.4.0",
+    "awurth/slim-validation": "^2.0"
   }
 }

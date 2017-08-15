@@ -27,7 +27,6 @@ abstract class BaseController
 	 */
 	protected $flash;
 
-
 	/**
 	 * @var \Slim\Router
 	 */
@@ -75,7 +74,7 @@ abstract class BaseController
 		if ($subDirectory) {
 			$uploadDirectory = $uploadDirectory . DIRECTORY_SEPARATOR . $subDirectory;
 			if(!file_exists($uploadDirectory)){
-				mkdir($uploadDirectory, 0775);
+				mkdir($uploadDirectory, 0755);
 			}
 		}
 		$originalName = pathinfo($uploadedFile->getClientFilename(), PATHINFO_FILENAME);
