@@ -27,6 +27,6 @@
     "robmorgan/phinx": "0.8.1",
     "symfony/console": "3.3.6",
     "vlucas/phpdotenv": "2.4.0",
-    "awurth/slim-validation": "^2.0"
+    "rakit/validation": "0.12.0"
   }
 }
