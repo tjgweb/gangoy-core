@@ -8,7 +8,6 @@ use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 use TJG\Gangoy\TwigExtension\SlimFlashTwigExtension;
 use TJG\Gangoy\TwigExtension\SlimCsrfTwigExtension;
-use Awurth\SlimValidation\ValidatorExtension;
 use TJG\Gangoy\TwigExtension\AuthTwigExtension;
 
 class TwigProvider implements ProviderInterface
@@ -29,7 +28,6 @@ class TwigProvider implements ProviderInterface
             $view->addExtension(new TwigExtension($c['router'], $basePath));
             $view->addExtension(new SlimFlashTwigExtension($c['flash']));
             $view->addExtension(new SlimCsrfTwigExtension($c['csrf']));
-            $view->addExtension(new ValidatorExtension($c['validator']));
 			$view->addExtension(new AuthTwigExtension($c['auth']));
 
             return $view;
